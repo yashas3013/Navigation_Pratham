@@ -1,0 +1,7 @@
+<launch>
+
+<rosparam file="$(find task_autonomous)/launch/controller.yaml" command="load"/>
+<node args="lw_joint_position_controller rw_joint_position_controller joint_state_controller " name="controller_spawner" ns="autoz" output="screen" pkg="controller_manager" respawn="false" type="spawner"/>
+
+
+</launch>

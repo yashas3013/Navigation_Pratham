@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<robot name="autoz" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find task_autonomous)/urdf/materials.xacro" />
+<xacro:include filename="$(find task_autonomous)/urdf/autoz.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.07521316837880704 0.0012666133909328913 0.2776025129946191"/>
+    <mass value="162.35660195764433"/>
+    <inertia ixx="11.695964" ixy="0.04522" ixz="1.386441" iyy="17.42388" iyz="0.044173" izz="18.504648"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="laser">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0091388022301927 0.029999751188186558 0.020000000000000018"/>
+    <mass value="0.8867387054331781"/>
+    <inertia ixx="0.000318" ixy="0.0" ixz="0.0" iyy="0.000317" iyz="0.0" izz="0.000399"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.350168 0.031846 -0.425"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.350168 0.031846 -0.425"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.034999999999999976 -2.6471228769145254e-06 -0.00018143953510629807"/>
+    <mass value="0.33085812216864385"/>
+    <inertia ixx="0.00018" ixy="0.0" ixz="0.0" iyy="3e-05" iyz="3e-06" izz="0.000185"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.415 -0.00104 -1.160818"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.415 -0.00104 -1.160818"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gps_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.034999999999999976 -2.6471228769145254e-06 -0.00018143953510629807"/>
+    <mass value="0.33085812216864385"/>
+    <inertia ixx="0.00018" ixy="0.0" ixz="0.0" iyy="3e-05" iyz="3e-06" izz="0.000185"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.415 -0.00104 -1.160818"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.415 -0.00104 -1.160818"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+
+<link name="imu_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.014999999999999902"/>
+    <mass value="1.6955999999999998"/>
+    <inertia ixx="0.002162" ixy="0.0" ixz="0.0" iyy="0.000636" iyz="0.0" izz="0.002543"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.425"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.425"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.2870594307278225e-14 -0.02999999999999997 -1.3877787807814457e-17"/>
+    <mass value="22.78722815354819"/>
+    <inertia ixx="0.097131" ixy="-0.0" ixz="0.0" iyy="0.180589" iyz="0.0" izz="0.097131"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.225 -0.35 -0.125"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.225 -0.35 -0.125"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.295386103412511e-14 0.02999999999999997 -1.3877787807814457e-17"/>
+    <mass value="22.78722815354819"/>
+    <inertia ixx="0.097131" ixy="-0.0" ixz="0.0" iyy="0.180589" iyz="0.0" izz="0.097131"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.225 0.35 -0.125"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.225 0.35 -0.125"/>
+    <geometry>
+      <mesh filename="package://task_autonomous/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="lidar_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="0.350168 -0.031846 0.425"/>
+  <parent link="base_link"/>
+  <child link="laser"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.415 0.00104 1.160818"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="gps_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.415 0.00104 1.160818"/>
+  <parent link="base_link"/>
+  <child link="gps_link"/>
+</joint>
+
+
+<joint name="Rigid6" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.425"/>
+  <parent link="base_link"/>
+  <child link="imu_link"/>
+</joint>
+
+<joint name="lw_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.225 0.35 0.125"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="rw_joint" type="continuous">
+  <origin rpy="0 0 0" xyz="0.225 -0.35 0.125"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+</robot>

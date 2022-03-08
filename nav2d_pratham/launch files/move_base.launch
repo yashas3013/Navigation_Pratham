@@ -1,0 +1,18 @@
+<launch>
+
+   <master auto="start"/>
+ <!-- Run the map server --> 
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find nav2d_pratham)/maps/map_move.yaml"/>
+
+ <!--- Run AMCL --> 
+    <include file="$(find nav2d_pratham)/launch files/amcl.launch" />
+
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find nav2d_pratham)/prams/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find nav2d_pratham)/prams/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find nav2d_pratham)/prams/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find nav2d_pratham)/prams/global_costmap_params.yaml" command="load" /> 
+    <rosparam file="$(find nav2d_pratham)/prams/base_local_planner_params.yaml" command="load" />
+ </node>
+
+</launch> 
