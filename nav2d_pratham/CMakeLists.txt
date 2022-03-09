@@ -9,9 +9,7 @@ project(nav2d_pratham)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   move_base
-  my_odom_configuration_dep
-  my_sensor_configuration_dep
-  my_tf_configuration_dep
+
 )
 
 ## System dependencies are found with CMake's conventions
